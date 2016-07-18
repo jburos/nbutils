@@ -9,7 +9,8 @@ Overview
 Utilities for working with Jupyter notebooks (ipynbs)
 
 Specifically:
-   **nbexecute**: execute all cells in a notebook, replacing original with output
+
+   - **nbexecute**: execute all cells in a notebook, replacing original with output
 
 Installation / Usage
 --------------------
