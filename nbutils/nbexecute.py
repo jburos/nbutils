@@ -14,8 +14,8 @@ def parse_args():
     parser.add_argument('files', help='files (ipynbs) to process', nargs='+')
     parser.add_argument('--timeout', help='timeout for each notebook execution', 
                        type=int, default=6000)
-    parser.add_argument('--output-dir', help='where executed notebooks should be saved (not yet implemented)',
-                        default=getcwd())
+ #   parser.add_argument('--output-dir', help='output dir for executed notebooks (default: overwrite existing)',
+ #                       default=getcwd())
     parser.add_argument('--debug', help='Increase logging output',
                         default=False, action='store_true')
     parser.add_argument('--allow-errors', help='Continue executing notebook on error',
