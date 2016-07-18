@@ -6,3 +6,4 @@ pypi-publisher
 nose>=1.3.3
 pylint>=1.4.4
 nbformat
+nbconvert
