@@ -7,7 +7,7 @@ from . import notebooks
 import logging
 
 def parse_args():
-    parser = argparse.ArgumentParser(prog = 'execute_notebooks.py',
+    parser = argparse.ArgumentParser(usage=__doc__,
                  description='Execute jupyter notebooks using nbconvert',
                  fromfile_prefix_chars='@' ## allow @files=filename.txt param
                  )
