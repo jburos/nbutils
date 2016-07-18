@@ -34,7 +34,7 @@ def _write_notebook(nb, filepath):
 def execute_notebook(notebook_filename,
                      executed_notebook=None,
                      timeout=6000,
-                     kernel_name='python2',
+                     kernel_name='python',
                      execute_path=None,
                      allow_errors=False
                      ):
