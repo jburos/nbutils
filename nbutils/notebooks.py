@@ -34,7 +34,6 @@ def _write_notebook(nb, filepath):
 def execute_notebook(notebook_filename,
                      executed_notebook=None,
                      timeout=6000,
-                     kernel_name='python',
                      execute_path=None,
                      allow_errors=False
                      ):
@@ -63,7 +62,7 @@ def execute_notebook(notebook_filename,
 
     logger.debug('starting execution of {} in {}'.format(notebook_filename, execute_path))
     try:
-        ep = ExecutePreprocessor(timeout=timeout, kernel_name=kernel_name, allow_errors=allow_errors)
+        ep = ExecutePreprocessor(timeout=timeout, allow_errors=allow_errors)
         ep.preprocess(nb, {'metadata': {'path': execute_path}})
     except:
         msg = 'Error executing the notebook "%s".\n' % notebook_filename
