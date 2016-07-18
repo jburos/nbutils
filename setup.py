@@ -36,6 +36,11 @@ setup(
         "Programming Language :: Python",
         "Topic :: Scientific/Engineering :: Bio-Informatics",
     ],
+    entry_points={
+    'console_scripts': [
+        'nbexecute = nbutils.nbexecute:main'
+    ],
+},
     keywords='',
     packages=find_packages(exclude=['docs', 'test*']),
     include_package_data=True,
