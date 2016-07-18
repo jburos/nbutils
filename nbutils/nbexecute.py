@@ -3,7 +3,7 @@
 import argparse
 import os
 from os import getcwd, path
-import notebooks
+from . import notebooks
 import logging
 
 def parse_args():
