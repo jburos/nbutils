@@ -16,6 +16,9 @@ def parse_args():
                        type=int, default=6000)
  #   parser.add_argument('--output-dir', help='output dir for executed notebooks (default: overwrite existing)',
  #                       default=getcwd())
+
+    parser.add_argument('--kernel', help='Specify kernel name',
+                        default=None)
     parser.add_argument('--debug', help='Increase logging output',
                         default=False, action='store_true')
     parser.add_argument('--allow-errors', help='Continue executing notebook on error',
@@ -33,7 +36,7 @@ def main():
 
     ## todo process output-dir param
     for f in opts.files:
-        notebooks.execute_notebook(f, timeout=opts.timeout, allow_errors=opts.allow_errors)
+        notebooks.execute_notebook(f, timeout=opts.timeout, allow_errors=opts.allow_errors, kernel_name=opts.kernel)
 
 
 

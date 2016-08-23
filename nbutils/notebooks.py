@@ -34,6 +34,7 @@ def _write_notebook(nb, filepath):
 def execute_notebook(notebook_filename,
                      executed_notebook=None,
                      timeout=6000,
+                     kernel_name=None,
                      execute_path=None,
                      allow_errors=False
                      ):
@@ -45,7 +46,7 @@ def execute_notebook(notebook_filename,
     notebook_filename (str): path to notebook which should be executed
     executed_notebook (str): where to save executed notebook (defaults to in-place execution) 
     timeout (int): at what point should notebook execution be halted (default: 6000)
-    kernel_name (str): which kernel to use (default: python2)
+    kernel_name (str): which kernel to use (default: None)
     execute_path (str): location in which execution should take place (default: ipynb location)
     allow_errors (bool): whether to continue executing the other cells in the notebook on error (default: False)
     """
@@ -62,8 +63,12 @@ def execute_notebook(notebook_filename,
 
     logger.debug('starting execution of {} in {}'.format(notebook_filename, execute_path))
     try:
-        ep = ExecutePreprocessor(timeout=timeout, allow_errors=allow_errors)
+        if not(kernel_name):
+            ep = ExecutePreprocessor(timeout=timeout, allow_errors=allow_errors)
+        else:
+            ep = ExecutePreprocessor(timeout=timeout, allow_errors=allow_errors, kernel_name=kernel_name)
         ep.preprocess(nb, {'metadata': {'path': execute_path}})
+
     except:
         msg = 'Error executing the notebook "%s".\n' % notebook_filename
         msg += 'See notebook "%s" for the traceback.' % executed_notebook
